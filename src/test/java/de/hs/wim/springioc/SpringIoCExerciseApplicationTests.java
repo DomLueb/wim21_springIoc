@@ -12,18 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class SpringIoCExerciseApplicationTests {
 
-    @Autowired
-    private CustomerService customerService;
-
-    @MockBean
-    private ICustomerRepo customerRepo;
-
     @Test
     void mainTest() {
-        Mockito.when(customerRepo.getAllCustomers()).thenReturn(Arrays.asList(new Customer("F","L","E","T")));
-
-        int count= customerService.countCustomers();
-        assertThat(count).isEqualTo(1);
     }
 }
 
