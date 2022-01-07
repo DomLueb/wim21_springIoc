@@ -13,12 +13,10 @@ public class AppRunner implements CommandLineRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(AppRunner.class);
     private final ICustomerRepo customerRepository;
-    private final INotifier notifier;
 
     @Autowired
-    public AppRunner(ICustomerRepo customerRepository, INotifier notifier) {
+    public AppRunner(ICustomerRepo customerRepository) {
         this.customerRepository = customerRepository;
-        this.notifier = notifier;
     }
 
     @Override
@@ -35,6 +33,6 @@ public class AppRunner implements CommandLineRunner {
     }
 
     private void notifyCustomers(Collection<Customer> customers) {
-        customers.forEach(customer -> notifier.sendNotification(customer));
+        // TODO: implement notification of each customer
     }
 }
